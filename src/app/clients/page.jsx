@@ -14,7 +14,7 @@ import { UserContext } from "@/context/UserContext";
 import { telephoneHelper } from "@/resources/helpers/telephoneHelper";
 import "./page.scss";
 
-const page = () => {
+const Page = () => {
   const [showModal, setShowModal] = React.useState(false);
   const [modalEdit, setModalEdit] = React.useState(null);
   const [showModalPayment, setShowModalPayment] = React.useState(false);
@@ -194,4 +194,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Page;

@@ -6,7 +6,7 @@ import Logo from "@/components/Logo/Logo";
 import { UserContext } from "@/context/UserContext";
 import "./page.scss";
 
-const page = () => {
+const Page = () => {
   const [username, setUsername] = React.useState("admin");
   const [password, setPassword] = React.useState("admin");
   const [errorLogin, setErrorLogin] = React.useState("");
@@ -86,4 +86,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
