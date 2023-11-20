@@ -1,0 +1,25 @@
+.cardStatistic {
+    max-width: 10rem;
+    width: 100%;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 0 1.5rem 0rem #b6b6b6;
+
+  &__icon {
+    width: fit-content;
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+
+  &__number {
+    font-size: 1rem;
+    font-weight: bolder;
+  }
+
+  &__text {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #a8a8a8;
+  }
+}

@@ -1,0 +1,37 @@
+.home {
+  padding: 1rem;
+
+  &__table {
+    border-collapse: collapse;
+    width: 100%;
+
+    &__container {
+      overflow: auto;
+      height: 25rem;
+    }
+
+    &__defaulter {
+      background-color: #ff00002e;
+
+      & td {
+        background: transparent !important;
+      }
+    }
+
+    & thead th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: #eee;
+    }
+
+    & th,
+    td {
+      padding: 8px 16px;
+    }
+
+    & svg {
+      font-size: 2rem;
+    }
+  }
+}

@@ -1,0 +1,119 @@
+.clients {
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+
+    &__search {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      background-color: #e1e1e1;
+      padding: 0.5rem;
+      border-radius: 1rem;
+      font-size: 0.875rem;
+      width: 100%;
+
+      & svg {
+        color: gray;
+      }
+
+      & input {
+        width: 100%;
+        border: none;
+        background-color: transparent;
+
+        &::placeholder {
+          color: gray;
+        }
+      }
+    }
+
+    &__add {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      background-color: transparent;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      background-color: #360251;
+      color: #fff;
+    }
+  }
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    width: 100%;
+
+    &__container {
+      overflow: auto;
+      height: 25rem;
+    }
+
+    &__defaulter {
+      background-color: #ff00002e;
+    }
+
+    &__actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      &__payment {
+        color: #007036;
+      }
+
+      &__edit {
+        color: #360251;
+      }
+
+      &__delete {
+        color: red;
+      }
+
+      & button {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+        & svg {
+          font-size: 1.5rem !important;
+        }
+      }
+    }
+
+    & thead {
+      border-bottom: 1px solid #e1e1e1;
+
+      & th {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background:#eee
+      }
+
+      & tr {
+        width: 100%;
+        font-size: 0.875rem;
+      }
+    }
+
+    & tbody {
+      & tr {
+        padding: 1rem;
+        font-size: 0.875rem;
+      }
+
+      & td {
+        padding: 1rem 0;
+
+        & svg {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}

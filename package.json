@@ -6,19 +6,34 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "backend": "node server.js"
   },
   "dependencies": {
+    "@types/jwt-decode": "^3.1.0",
+    "axios": "^1.6.0",
+    "bootstrap": "^5.3.2",
+    "framer-motion": "^10.16.4",
+    "js-cookie": "^3.0.5",
+    "json-server": "^0.17.4",
+    "jsonwebtoken": "^9.0.2",
+    "jwt-decode": "^4.0.0",
+    "next": "14.0.0",
+    "normalize.css": "^8.0.1",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.0.0"
+    "react-icons": "^4.11.0",
+    "react-input-date-mask": "^2.0.0",
+    "react-input-mask": "^2.0.4",
+    "react-modal": "^3.16.1",
+    "sass": "^1.69.5"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "14.0.0"
+    "eslint-config-next": "14.0.0",
+    "typescript": "^5"
   }
 }
