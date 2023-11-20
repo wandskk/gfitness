@@ -7,8 +7,8 @@ import { UserContext } from "@/context/UserContext";
 import "./page.scss";
 
 const Page = () => {
-  const [username, setUsername] = React.useState("admin");
-  const [password, setPassword] = React.useState("admin");
+  const [username, setUsername] = React.useState("");
+  const [password, setPassword] = React.useState("");
   const [errorLogin, setErrorLogin] = React.useState("");
   const { userLogin, loading } = React.useContext(UserContext) || {};
 

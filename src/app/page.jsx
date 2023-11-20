@@ -2,14 +2,14 @@
 
 import CardStatistic from "@/components/CardStatistic/CardStatistic";
 import React from "react";
+import Link from "next/link";
 import { UserContext } from "@/context/UserContext";
 import { isMoreThanOneMonthApart } from "@/resources/utils/isMoreThanOneMonthApart";
 import { isDateWithinCurrentMonth } from "@/resources/utils/isDateWithinCurrentMonth";
 import { money } from "@/resources/helpers/money";
-import "./page.scss";
 import { FaUserCircle } from "react-icons/fa";
 import { telephoneHelper } from "@/resources/helpers/telephoneHelper";
-import Link from "next/link";
+import "./page.scss";
 
 export default function Home() {
   const { clients } = React.useContext(UserContext) || {};
