@@ -56,7 +56,7 @@ const ModalClient = ({ openModal, editId, onClose }) => {
     } catch (error) {
     } finally {
       await getAllClients();
-      onClose();
+      handleClosedModal();
       setLoading(false);
     }
   }
@@ -72,7 +72,7 @@ const ModalClient = ({ openModal, editId, onClose }) => {
     } catch (error) {
     } finally {
       await getAllClients();
-      onClose();
+      handleClosedModal();
       setLoading(false);
     }
   }
