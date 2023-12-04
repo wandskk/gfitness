@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br">
-      <body className={inter.className} suppressHydrationWarning={true}>
+      <body className={`${inter.className} container`} suppressHydrationWarning={true}>
         <Suspense fallback={<Loading />}>
           <Main>{children}</Main>
         </Suspense>

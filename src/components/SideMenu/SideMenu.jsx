@@ -46,17 +46,7 @@ const SideMenu = () => {
             >
               <BsFillPersonLinesFill /> Alunos
             </Link>
-          </li>
-          {/* <li className="sideMenu__list__item">
-            <Link
-              href="/account"
-              className={`d-flex align-items-center gap-4 ${
-                pathname === "/account" && "active"
-              }`}
-            >
-              <AiFillSetting /> Configurações
-            </Link>
-          </li> */}
+          </li>          
           <li className="sideMenu__list__item">
             <Link
               href="/logout"

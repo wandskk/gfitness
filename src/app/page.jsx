@@ -78,44 +78,6 @@ export default function Home() {
         </div>
         <div className="row">
           <div className="col-12 col-sm-12 col-md-12 col-xl-6">
-            <h4 className="my-5">Inscritos esse mês</h4>
-            <div className="home__table__container">
-              <table className="table home__table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Contato</th>
-                    <th scope="col">Data de inscrição</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {monthSubscribers &&
-                    monthSubscribers.map((client) => {
-                      return (
-                        <tr key={client.id}>
-                          <td>
-                            <FaUserCircle />
-                          </td>
-                          <td>{client.name}</td>
-                          <td>
-                            <Link
-                              target="_blank"
-                              href={`https://wa.me/55${client.telephone}`}
-                              title={`Falar com este cliente no Whatsapp`}
-                            >
-                              {telephoneHelper.mask(client.telephone)}
-                            </Link>
-                          </td>
-                          <td>{client.date_i}</td>
-                        </tr>
-                      );
-                    })}
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div className="col-12 col-sm-12 col-md-12 col-xl-6">
             <h4 className="my-5">Inadimplentes</h4>
             <div className="home__table__container">
               <table className="table home__table">

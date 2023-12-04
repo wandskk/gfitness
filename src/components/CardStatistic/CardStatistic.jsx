@@ -10,6 +10,7 @@ const CardStatistic = ({ type, data }) => {
     clients: {
       backgroundColor: "#4D0D63",
       icon: <AiFillHeart />,
+      link: "/clients",
     },
     money: {
       backgroundColor: "#209F84",
@@ -24,8 +25,16 @@ const CardStatistic = ({ type, data }) => {
       icon: <BiSolidUserPlus />,
     },
   };
+
+  const handleLink = (type) => {
+    if (type === "clients") window.location.href = cardTypes[type].link;
+  };
+  
   return (
-    <div className="cardStatistic d-flex flex-column gap-2">
+    <div
+      className="cardStatistic d-flex flex-column gap-2"
+      onClick={() => handleLink(type)}
+    >
       <div
         className="cardStatistic__icon d-flex align-items-center justify-center"
         style={{ backgroundColor: cardTypes[`${type}`].backgroundColor }}

@@ -16,7 +16,6 @@ const Main = ({ children }) => {
       <UserStorage>
         {!isLoginPage && (
           <>
-            <SideMenu />
             <Header />
           </>
         )}

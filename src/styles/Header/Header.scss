@@ -1,9 +1,13 @@
 .header {
-    &__title {
-        font-size: .9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-        &__name {
-            color: #4D0D63;
-        }
+  &__title {
+    font-size: 0.9rem;
+
+    &__name {
+      color: #4d0d63;
     }
+  }
 }

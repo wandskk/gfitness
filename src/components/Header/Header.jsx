@@ -1,11 +1,13 @@
 import React from "react";
+import Logo from "@/components/Logo/Logo";
 import { UserContext } from "@/context/UserContext";
 import { getGreeting } from "@/resources/utils/getGreeting";
 import { name } from "@/resources/helpers/name";
 import "@/styles/Header/Header.scss";
+import Link from "next/link";
 
 const Header = () => {
-  const { userData } = React.useContext(UserContext);
+  const { userData, logoutUser } = React.useContext(UserContext);
   const [firstName, setFirstName] = React.useState("");
 
   React.useEffect(() => {
@@ -15,12 +17,19 @@ const Header = () => {
   if (userData)
     return (
       <header className="header">
-        <h2 className="header__title">
+        <Logo />
+        {/* <h2 className="header__title">
           <span className="header__title__name">
             Bem-vindo(a), <strong>{firstName}</strong>.
           </span>
           <span className="header__title__greeting"> {getGreeting()}</span>
-        </h2>
+        </h2> */}
+        <button
+          onClick={logoutUser}
+          className="header__title__exit btn btn-warning mx-4"
+        >
+          Sair
+        </button>
       </header>
     );
 };

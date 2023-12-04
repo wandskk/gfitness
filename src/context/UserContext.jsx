@@ -18,6 +18,11 @@ export const UserStorage = ({ children }) => {
   const [showFooter, setShowFooter] = React.useState(true);
   const pathname = usePathname();
 
+  async function logoutUser() {
+    Cookies.remove("UUID");
+    window.location.reload();
+  }
+
   async function getAllClients() {
     const cookie = Cookies.get("UUID");
     try {
@@ -75,6 +80,7 @@ export const UserStorage = ({ children }) => {
         loading,
         clients,
         UUID,
+        logoutUser,
         userLogin,
         setLoading,
         setShowHeader,

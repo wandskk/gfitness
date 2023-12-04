@@ -8,7 +8,6 @@ import Link from "next/link";
 import { isMoreThanOneMonthApart } from "@/resources/utils/isMoreThanOneMonthApart";
 import { AiOutlineUserAdd, AiFillDelete } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
-import { FaUserCircle } from "react-icons/fa";
 import { MdEdit, MdAttachMoney } from "react-icons/md";
 import { UserContext } from "@/context/UserContext";
 import { telephoneHelper } from "@/resources/helpers/telephoneHelper";
@@ -22,7 +21,6 @@ const Page = () => {
   const [showModalDelete, setShowModalDelete] = React.useState(false);
   const [modalIdDelete, setModalIdDelete] = React.useState(null);
   const [searchTerm, setSearchTerm] = React.useState("");
-  const [qtdResult, setQtdResult] = React.useState(20);
   const { clients, UUID, getAllClients } = React.useContext(UserContext);
 
   const handleClosedModal = () => {
@@ -53,16 +51,7 @@ const Page = () => {
   const handleShowModalDelete = (deleteId) => {
     setShowModalDelete(true);
     if (deleteId) setModalIdDelete(deleteId);
-  };
-
-  function compareByName(a, b) {
-    const nameA = a.name.toUpperCase();
-    const nameB = b.name.toUpperCase();
-
-    if (nameA < nameB) return -1;
-    if (nameA > nameB) return 1;
-    return 0;
-  }
+  };  
 
   React.useEffect(() => {
     if (searchTerm.length >= 3) {
@@ -71,10 +60,7 @@ const Page = () => {
         const nameNormalized = client.name.toLocaleLowerCase();
         return nameNormalized.includes(termNormalized);
       }).length;
-
-      setQtdResult(counter);
-      if (counter > 20) setQtdResult(20);
-    } else setQtdResult(20);
+    }
   }, [searchTerm]);
 
   if (clients)
@@ -116,11 +102,9 @@ const Page = () => {
         </header>
 
         <div className="clients__table__container">
-          <table className="table clients__table">
+          <table className="clients__table">
             <thead>
               <tr>
-                <th scope="col"></th>
-                <th scope="col"></th>
                 <th scope="col">Nome</th>
                 <th scope="col">Contato</th>
                 <th scope="col">Último pagamento</th>
@@ -141,6 +125,7 @@ const Page = () => {
                     const lastPayment =
                       client.pg_list[client.pg_list.length - 1];
                     const isDefaulter = isMoreThanOneMonthApart(lastPayment);
+                    console.log(isDefaulter);
 
                     return (
                       <tr
@@ -149,10 +134,6 @@ const Page = () => {
                           isDefaulter ? "clients__table__defaulter" : ""
                         }`}
                       >
-                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                        <td>
-                          <FaUserCircle />
-                        </td>
                         <td>{client.name}</td>
                         <td>
                           <Link
