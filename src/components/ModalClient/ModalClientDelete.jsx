@@ -29,10 +29,10 @@ const ModalClientDelete = ({ openModal, deleteId, onClose }) => {
         clientId,
         UUID
       );
-      getAllClients();
-      onClose();
     } catch (error) {
     } finally {
+      getAllClients();
+      onClose();
       setLoading(false);
     }
   }
@@ -72,7 +72,9 @@ const ModalClientDelete = ({ openModal, deleteId, onClose }) => {
                 <th scope="col" className="w-50">
                   Nome
                 </th>
-                <th scope="col" className="w-50">Data de inscrição</th>
+                <th scope="col" className="w-50">
+                  Data de inscrição
+                </th>
               </tr>
             </thead>
             <tbody>

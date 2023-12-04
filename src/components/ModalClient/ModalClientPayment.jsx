@@ -3,7 +3,6 @@ import Modal from "react-modal";
 import { MdAttachMoney } from "react-icons/md";
 import { UserContext } from "@/context/UserContext";
 import { AiOutlineCloseCircle, AiFillDelete } from "react-icons/ai";
-import { MdEdit } from "react-icons/md";
 import { ClientsServices } from "@/services/modules/clients";
 import "@/styles/ModalClient/ModalClient.scss";
 
@@ -49,6 +48,7 @@ const ModalClientPayment = ({ openModal, editId, onClose }) => {
     if (newPaymentDate.length === 10) {
       const newArrayPgList = [...pgList, newPaymentDate];
       try {
+        setPgList(newArrayPgList);
         const body = {
           ...clientData,
           pg_list: newArrayPgList,
@@ -59,7 +59,6 @@ const ModalClientPayment = ({ openModal, editId, onClose }) => {
           UUID
         );
         getAllClients();
-        setPgList(newArrayPgList);
       } catch (error) {
       } finally {
         setPaymentDate("");
@@ -72,6 +71,7 @@ const ModalClientPayment = ({ openModal, editId, onClose }) => {
       (payment, index) => index !== paymentIndex
     );
     try {
+      setPgList(newArrayPgList);
       const body = {
         ...clientData,
         pg_list: newArrayPgList,
@@ -82,7 +82,6 @@ const ModalClientPayment = ({ openModal, editId, onClose }) => {
         UUID
       );
       getAllClients();
-      setPgList(newArrayPgList);
     } catch (error) {
     } finally {
       setPaymentDate("");

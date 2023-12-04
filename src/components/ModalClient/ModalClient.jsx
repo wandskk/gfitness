@@ -53,10 +53,10 @@ const ModalClient = ({ openModal, editId, onClose }) => {
     setLoading(true);
     try {
       const createClient = await ClientsServices.createClient(body, UUID);
-      await getAllClients();
-      onClose();
     } catch (error) {
     } finally {
+      await getAllClients();
+      onClose();
       setLoading(false);
     }
   }
@@ -69,10 +69,10 @@ const ModalClient = ({ openModal, editId, onClose }) => {
         body,
         UUID
       );
-      await getAllClients();
-      onClose();
     } catch (error) {
     } finally {
+      await getAllClients();
+      onClose();
       setLoading(false);
     }
   }

@@ -4,13 +4,11 @@ import React from "react";
 import ModalClient from "@/components/ModalClient/ModalClient";
 import ModalClientPayment from "@/components/ModalClient/ModalClientPayment";
 import ModalClientDelete from "@/components/ModalClient/ModalClientDelete";
-import Link from "next/link";
 import { isMoreThanOneMonthApart } from "@/resources/utils/isMoreThanOneMonthApart";
 import { AiOutlineUserAdd, AiFillDelete } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import { MdEdit, MdAttachMoney } from "react-icons/md";
 import { UserContext } from "@/context/UserContext";
-import { telephoneHelper } from "@/resources/helpers/telephoneHelper";
 import "./page.scss";
 
 const Page = () => {
@@ -21,7 +19,7 @@ const Page = () => {
   const [showModalDelete, setShowModalDelete] = React.useState(false);
   const [modalIdDelete, setModalIdDelete] = React.useState(null);
   const [searchTerm, setSearchTerm] = React.useState("");
-  const { clients, UUID, getAllClients } = React.useContext(UserContext);
+  const { clients } = React.useContext(UserContext);
 
   const handleClosedModal = () => {
     setShowModal(false);
