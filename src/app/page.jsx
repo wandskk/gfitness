@@ -7,7 +7,6 @@ import { UserContext } from "@/context/UserContext";
 import { isMoreThanOneMonthApart } from "@/resources/utils/isMoreThanOneMonthApart";
 import { isDateWithinCurrentMonth } from "@/resources/utils/isDateWithinCurrentMonth";
 import { money } from "@/resources/helpers/money";
-import { FaUserCircle } from "react-icons/fa";
 import { telephoneHelper } from "@/resources/helpers/telephoneHelper";
 import "./page.scss";
 
@@ -18,7 +17,13 @@ export default function Home() {
   const [monthSubscribers, setMonthSubscribers] = React.useState(null);
 
   const getAllMoney = React.useCallback((clients) => {
-    const clientsValues = clients.map((client) => +client.plan_value);
+    const clientsValues = clients
+      .filter((client) => {
+        const pgList = client.pg_list;
+        if (pgList && pgList.length > 0)
+          return !isMoreThanOneMonthApart(pgList[pgList.length - 1]);
+      })
+      .map((client) => +client.plan_value);
     const sum = money.sumAll(clientsValues);
 
     setAllMoney(money.mask(sum));

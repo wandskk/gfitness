@@ -137,12 +137,9 @@ const ModalClient = ({ openModal, editId, onClose }) => {
           </button>
         </div>
         <div className="modalClient__content">
-          <form
-            onSubmit={(e) => handleSubmit(e)}
-            className="modalClient__form"
-          >
-            <div className="mb-3 row">
-              <div className="col-8">
+          <form onSubmit={(e) => handleSubmit(e)} className="modalClient__form">
+            <div className="row">
+              <div className="col-12 mb-3">
                 <label htmlFor="name" className="form-label">
                   Nome
                 </label>
@@ -156,7 +153,7 @@ const ModalClient = ({ openModal, editId, onClose }) => {
                   onChange={({ target }) => setName(target.value)}
                 />
               </div>
-              <div className="col-4">
+              <div className="col-12 mb-3">
                 <label htmlFor="telephone" className="form-label">
                   Contato
                 </label>
@@ -171,8 +168,8 @@ const ModalClient = ({ openModal, editId, onClose }) => {
                 />
               </div>
             </div>
-            <div className="mb-3 row">
-              <div className="col-8">
+            <div className="row">
+              <div className="col-12 mb-3">
                 <label htmlFor="street" className="form-label">
                   Endereço
                 </label>
@@ -187,7 +184,7 @@ const ModalClient = ({ openModal, editId, onClose }) => {
                 />
               </div>
 
-              <div className="col-4">
+              <div className="col-12 mb-3">
                 <label htmlFor="planValue" className="form-label">
                   Valor do plano
                 </label>
@@ -202,7 +199,7 @@ const ModalClient = ({ openModal, editId, onClose }) => {
                 />
               </div>
             </div>
-            <div className="col-6 d-flex justify-content-center align-items-center mx-auto">
+            <div className="col-12 d-flex justify-content-center align-items-center mx-auto">
               <button
                 type="submit"
                 className="modalClient__submit btn btn-primary  mt-4 w-100"

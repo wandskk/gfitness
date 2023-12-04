@@ -36,3 +36,9 @@ body {
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 10000;
 }
+
+@media screen and (max-width: 991px) {
+  .modalCustom {
+    width: 90% !important;
+  }
+}

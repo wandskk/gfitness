@@ -68,25 +68,26 @@ const ModalClientPayment = ({ openModal, editId, onClose }) => {
   }
 
   async function handleDeletePayment(paymentIndex) {
-      const newArrayPgList = pgList.filter((payment, index) => index !== paymentIndex);
-      try {
-        const body = {
-          ...clientData,
-          pg_list: newArrayPgList,
-        };
-        const savePgList = await ClientsServices.updateClientById(
-          editId,
-          body,
-          UUID
-        );
-        getAllClients();
-        setPgList(newArrayPgList);
-      } catch (error) {
-      } finally {
-        setPaymentDate("");
-      }
+    const newArrayPgList = pgList.filter(
+      (payment, index) => index !== paymentIndex
+    );
+    try {
+      const body = {
+        ...clientData,
+        pg_list: newArrayPgList,
+      };
+      const savePgList = await ClientsServices.updateClientById(
+        editId,
+        body,
+        UUID
+      );
+      getAllClients();
+      setPgList(newArrayPgList);
+    } catch (error) {
+    } finally {
+      setPaymentDate("");
     }
-  
+  }
 
   React.useEffect(() => {
     if (editId) getClientDataById(editId, UUID);
@@ -103,7 +104,7 @@ const ModalClientPayment = ({ openModal, editId, onClose }) => {
       >
         <div className="modalClient">
           <div className="modalClient__header position-relative">
-            <h2 className="m-0">Pagamentos do aluno</h2>
+            <h2 className="mt-4">Pagamentos do aluno</h2>
             <button
               onClick={onClose}
               className="modalClient__close position-absolute"
@@ -111,9 +112,9 @@ const ModalClientPayment = ({ openModal, editId, onClose }) => {
               <AiOutlineCloseCircle />
             </button>
 
-            <div className="d-flex justify-content-between mt-4">
+            <div className="d-flex flex-column justify-content-between mt-4">
               <p className="m-0">Nome: {clientData.name}</p>
-              <div className="d-flex flex-column align-items-end">
+              <div className="d-flex flex-column">
                 <small className="m-0">
                   Inscrito deste: {clientData.date_i}
                 </small>
@@ -123,7 +124,7 @@ const ModalClientPayment = ({ openModal, editId, onClose }) => {
               </div>
             </div>
 
-            <div className="mt-4 d-flex gap-4">
+            <div className="mt-4 d-flex flex-column gap-4">
               <input
                 type="text"
                 className="form-control w-100"
