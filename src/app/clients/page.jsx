@@ -51,7 +51,7 @@ const Page = () => {
   const handleShowModalDelete = (deleteId) => {
     setShowModalDelete(true);
     if (deleteId) setModalIdDelete(deleteId);
-  };  
+  };
 
   React.useEffect(() => {
     if (searchTerm.length >= 3) {
@@ -125,7 +125,6 @@ const Page = () => {
                     const lastPayment =
                       client.pg_list[client.pg_list.length - 1];
                     const isDefaulter = isMoreThanOneMonthApart(lastPayment);
-                    console.log(isDefaulter);
 
                     return (
                       <tr
