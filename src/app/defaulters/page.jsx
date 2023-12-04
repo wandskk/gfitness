@@ -100,6 +100,7 @@ const Page = () => {
         </header>
 
         <div className="clients__table__container">
+        <h2>Lista de alunos inadimplentes</h2>
           <table className="clients__table">
             <thead>
               <tr>

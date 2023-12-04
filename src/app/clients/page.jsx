@@ -53,16 +53,6 @@ const Page = () => {
     if (deleteId) setModalIdDelete(deleteId);
   };
 
-  React.useEffect(() => {
-    if (searchTerm.length >= 3) {
-      const counter = clients.filter((client) => {
-        const termNormalized = searchTerm.toLocaleLowerCase();
-        const nameNormalized = client.name.toLocaleLowerCase();
-        return nameNormalized.includes(termNormalized);
-      }).length;
-    }
-  }, [searchTerm]);
-
   if (clients)
     return (
       <section className="clients">
@@ -102,6 +92,7 @@ const Page = () => {
         </header>
 
         <div className="clients__table__container">
+          <h2>Lista de alunos</h2>
           <table className="clients__table">
             <thead>
               <tr>

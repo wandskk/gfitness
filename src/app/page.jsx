@@ -2,12 +2,10 @@
 
 import CardStatistic from "@/components/CardStatistic/CardStatistic";
 import React from "react";
-import Link from "next/link";
 import { UserContext } from "@/context/UserContext";
 import { isMoreThanOneMonthApart } from "@/resources/utils/isMoreThanOneMonthApart";
 import { isDateWithinCurrentMonth } from "@/resources/utils/isDateWithinCurrentMonth";
 import { money } from "@/resources/helpers/money";
-import { telephoneHelper } from "@/resources/helpers/telephoneHelper";
 import "./page.scss";
 
 export default function Home() {
@@ -71,7 +69,6 @@ export default function Home() {
           <CardStatistic
             type="money"
             data={{ value: allMoney, text: "Lucro estimado" }}
-            // href="/finances"
           />
           <CardStatistic
             type="monthSubscribes"
@@ -80,41 +77,6 @@ export default function Home() {
               text: "Inscritos este mês",
             }}
           />
-        </div>
-        <div className="row">
-          <div className="col-12 col-sm-12 col-md-12 col-xl-6">
-            <h4 className="my-5">Inadimplentes</h4>
-            <div className="home__table__container">
-              <table className="table home__table">
-                <thead>
-                  <tr>
-                    <th scope="col">Nome</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {defaulters &&
-                    defaulters.map((client) => {
-                      return (
-                        <tr key={client.id} className="home__table__defaulter">
-                          <td>
-                            <div className="home__table__td">
-                              <p>{client.name}</p>
-                              <Link
-                                target="_blank"
-                                href={`https://wa.me/55${client.telephone}`}
-                                title={`Falar com este cliente no Whatsapp`}
-                              >
-                                {telephoneHelper.mask(client.telephone)}
-                              </Link>
-                            </div>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                </tbody>
-              </table>
-            </div>
-          </div>
         </div>
       </section>
     );
