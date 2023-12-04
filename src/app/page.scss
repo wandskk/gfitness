@@ -1,21 +1,39 @@
 .home {
   padding: 1rem;
 
+  &__statistic {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    @media screen and (max-width: 991px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
   &__table {
     border-collapse: collapse;
     width: 100%;
+    font-size: .875rem;
 
+    
     &__container {
       overflow: auto;
       height: 25rem;
     }
-
+    
     &__defaulter {
       background-color: #ff00002e;
-
+      
       & td {
         background: transparent !important;
       }
+    }
+    
+    &__td {
+      display: flex;
+      justify-content: space-between;
     }
 
     & thead th {

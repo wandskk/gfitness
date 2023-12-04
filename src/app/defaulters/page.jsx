@@ -4,13 +4,11 @@ import React from "react";
 import ModalClient from "@/components/ModalClient/ModalClient";
 import ModalClientPayment from "@/components/ModalClient/ModalClientPayment";
 import ModalClientDelete from "@/components/ModalClient/ModalClientDelete";
-import Link from "next/link";
 import { isMoreThanOneMonthApart } from "@/resources/utils/isMoreThanOneMonthApart";
 import { AiOutlineUserAdd, AiFillDelete } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import { MdEdit, MdAttachMoney } from "react-icons/md";
 import { UserContext } from "@/context/UserContext";
-import { telephoneHelper } from "@/resources/helpers/telephoneHelper";
 import "./page.scss";
 
 const Page = () => {
@@ -123,7 +121,7 @@ const Page = () => {
                     const lastPayment =
                       client.pg_list[client.pg_list.length - 1];
                     const isDefaulter = isMoreThanOneMonthApart(lastPayment);
-
+                    if(isDefaulter)
                     return (
                       <tr
                         key={client.id}

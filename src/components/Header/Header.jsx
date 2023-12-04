@@ -17,7 +17,9 @@ const Header = () => {
   if (userData)
     return (
       <header className="header">
-        <Logo />
+        <Link href="/">
+          <Logo />
+        </Link>
         {/* <h2 className="header__title">
           <span className="header__title__name">
             Bem-vindo(a), <strong>{firstName}</strong>.

@@ -5,12 +5,11 @@ import { RiEmotionUnhappyFill } from "react-icons/ri";
 import { BiSolidUserPlus } from "react-icons/bi";
 import "@/styles/CardStatistic/CardStatistic.scss";
 
-const CardStatistic = ({ type, data }) => {
+const CardStatistic = ({ type, data, href = null }) => {
   const cardTypes = {
     clients: {
       backgroundColor: "#4D0D63",
       icon: <AiFillHeart />,
-      link: "/clients",
     },
     money: {
       backgroundColor: "#209F84",
@@ -26,10 +25,10 @@ const CardStatistic = ({ type, data }) => {
     },
   };
 
-  const handleLink = (type) => {
-    if (type === "clients") window.location.href = cardTypes[type].link;
+  const handleLink = () => {
+    if (href) window.location.href = href;
   };
-  
+
   return (
     <div
       className="cardStatistic d-flex flex-column gap-2"

@@ -52,16 +52,21 @@ export default function Home() {
   if (clients)
     return (
       <section className="home">
-        <div className="home__statistic d-flex gap-4 align-items-center">
+        <div className="home__statistic">
           <CardStatistic
             type="clients"
             data={{ value: clients.length, text: "Inscritos" }}
             href="/clients"
           />
           <CardStatistic
+            type="late"
+            data={{ value: defaulters?.length, text: "Inadimplentes" }}
+            href="/defaulters"
+          />
+          <CardStatistic
             type="money"
             data={{ value: allMoney, text: "Lucro estimado" }}
-            href="/finances"
+            // href="/finances"
           />
           <CardStatistic
             type="monthSubscribes"
@@ -69,11 +74,6 @@ export default function Home() {
               value: monthSubscribers?.length,
               text: "Inscritos este mês",
             }}
-          />
-          <CardStatistic
-            type="late"
-            data={{ value: defaulters?.length, text: "Inadimplentes" }}
-            href="/defaulters"
           />
         </div>
         <div className="row">
@@ -84,7 +84,6 @@ export default function Home() {
                 <thead>
                   <tr>
                     <th scope="col">Nome</th>
-                    <th scope="col">Contato</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -92,15 +91,17 @@ export default function Home() {
                     defaulters.map((client) => {
                       return (
                         <tr key={client.id} className="home__table__defaulter">
-                          <td>{client.name}</td>
                           <td>
-                            <Link
-                              target="_blank"
-                              href={`https://wa.me/55${client.telephone}`}
-                              title={`Falar com este cliente no Whatsapp`}
-                            >
-                              {telephoneHelper.mask(client.telephone)}
-                            </Link>
+                            <div className="home__table__td">
+                              <p>{client.name}</p>
+                              <Link
+                                target="_blank"
+                                href={`https://wa.me/55${client.telephone}`}
+                                title={`Falar com este cliente no Whatsapp`}
+                              >
+                                {telephoneHelper.mask(client.telephone)}
+                              </Link>
+                            </div>
                           </td>
                         </tr>
                       );
