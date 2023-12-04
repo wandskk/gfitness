@@ -15,5 +15,5 @@ export default function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/", "/login", "/clients", "/finances"],
+  matcher: ["/", "/login", "/clients", "/defaulters"],
 };
